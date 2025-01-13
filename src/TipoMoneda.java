@@ -1,4 +1,4 @@
-public enum Moneda {
+public enum TipoMoneda {
     USD(1, "USD", "DOLAR EEUU (USD)"),
     MXN(2, "MXN", "PESO MEXICANO (MXN)"),
     COP(3, "COP", "PESO COLOMBIANO (COP)"),
@@ -13,7 +13,7 @@ public enum Moneda {
     private final String codigo;
     private final String descripcion;
 
-    Moneda(int opcion, String codigo, String descripcion) {
+    TipoMoneda(int opcion, String codigo, String descripcion) {
         this.opcion = opcion;
         this.codigo = codigo;
         this.descripcion = descripcion;
@@ -31,10 +31,10 @@ public enum Moneda {
         return descripcion;
     }
 
-    public static Moneda fromOpcion(int opcion) {
-        for (Moneda moneda : Moneda.values()) {
-            if (moneda.getOpcion() == opcion) {
-                return moneda;
+    public static TipoMoneda fromOpcion(int opcion) {
+        for (TipoMoneda tipoMoneda : TipoMoneda.values()) {
+            if (tipoMoneda.getOpcion() == opcion) {
+                return tipoMoneda;
             }
         }
         throw new IllegalArgumentException("OPCION DE MONEDA NO DISPONIBLE EN EL MENU");
@@ -42,10 +42,10 @@ public enum Moneda {
 
     public static String menuMonedas() {
         StringBuilder menu = new StringBuilder();
-        for (Moneda moneda : Moneda.values()) {
-            menu.append(moneda.getOpcion())
+        for (TipoMoneda tipoMoneda : TipoMoneda.values()) {
+            menu.append(tipoMoneda.getOpcion())
                     .append("-")
-                    .append(moneda.getDescripcion())
+                    .append(tipoMoneda.getDescripcion())
                     .append("|\n");
         }
         // Eliminar el último " | "

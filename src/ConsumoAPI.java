@@ -1,6 +1,6 @@
 import com.google.gson.annotations.SerializedName;
 
-public class CambioAPI {
+public class ConsumoAPI {
     private String result;
     private String documentation;
     private String terms_of_use;
@@ -41,7 +41,7 @@ public class CambioAPI {
 
     @Override
     public String toString() {
-        return "CambioAPI{" +
+        return "ConsumoAPI{" +
                 "result='" + result + '\'' +
                 ", baseCode='" + baseCode + '\'' +
                 ", targetCode='" + targetCode + '\'' +

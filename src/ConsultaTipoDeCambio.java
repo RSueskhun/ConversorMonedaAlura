@@ -18,7 +18,7 @@ public class ConsultaTipoDeCambio {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    public CambioAPI buscarTipoDeCambio(String monedaOrigen, String monedaDestino) throws IOException, InterruptedException {
+    public ConsumoAPI buscarTipoDeCambio(String monedaOrigen, String monedaDestino) throws IOException, InterruptedException {
         String url = BASE_URL + API_KEY + "/pair/" + monedaOrigen + "/" + monedaDestino;
         URI direccion = URI.create(url);
 
@@ -33,7 +33,7 @@ public class ConsultaTipoDeCambio {
             throw new IOException("ERROR DE COMUNICACION --- CODIGO DE RESPUESTA: " + response.statusCode());
         }
 
-        CambioAPI cambio = gson.fromJson(response.body(), CambioAPI.class);
+        ConsumoAPI cambio = gson.fromJson(response.body(), ConsumoAPI.class);
 
         if (!"success".equalsIgnoreCase(cambio.getResult())) {
             throw new RuntimeException("LA API NO PUDO PROCESAR LA SOLICITUD DE CONVERSION: " + cambio.getResult());

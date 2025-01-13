@@ -6,7 +6,7 @@ public class Principal {
     public static void main(String[] args) {
         Scanner lectura = new Scanner(System.in);
         ConsultaTipoDeCambio consulta = new ConsultaTipoDeCambio();
-        GeneradorDeArchivo generador = new GeneradorDeArchivo();
+        ArchivoJson generador = new ArchivoJson();
         boolean continuar = true;
 
         //MENU
@@ -52,25 +52,25 @@ public class Principal {
         lectura.close();
     }
 
-    private static void realizarConversion(Scanner lectura, ConsultaTipoDeCambio consulta, GeneradorDeArchivo generador) {
+    private static void realizarConversion(Scanner lectura, ConsultaTipoDeCambio consulta, ArchivoJson generador) {
         try {
             // ORIGEN
             System.out.println("\nMONEDAS DISPONIBLES:");
             System.out.println("__________________________________________________");
-            System.out.println(Moneda.menuMonedas());
+            System.out.println(TipoMoneda.menuMonedas());
             System.out.println("__________________________________________________");
             System.out.print("\nINGRESE LA OPCION CORRESPONDIENTE A SU SELECCION: ");
             int origenInput = Integer.parseInt(lectura.nextLine());
-            Moneda origen = Moneda.fromOpcion(origenInput);
+            TipoMoneda origen = TipoMoneda.fromOpcion(origenInput);
 
             // DESTINO
             System.out.println("\nSELECCIONE LA MONEDA DE DESTINO PARA SU CONVERSION:");
             System.out.println("__________________________________________________");
-            System.out.println(Moneda.menuMonedas());
+            System.out.println(TipoMoneda.menuMonedas());
             System.out.println("__________________________________________________");
             System.out.print("\nINGRESE LA OPCION CORRESPONDIENTE A SU SELECCION: ");
             int destinoInput = Integer.parseInt(lectura.nextLine());
-            Moneda destino = Moneda.fromOpcion(destinoInput);
+            TipoMoneda destino = TipoMoneda.fromOpcion(destinoInput);
 
             // CANTIDAD
             System.out.println("__________________________________________________");
@@ -78,7 +78,7 @@ public class Principal {
             double cantidad = Double.parseDouble(lectura.nextLine());
 
             // CONSUMO API
-            CambioAPI cambio = consulta.buscarTipoDeCambio(origen.getCodigo(), destino.getCodigo());
+            ConsumoAPI cambio = consulta.buscarTipoDeCambio(origen.getCodigo(), destino.getCodigo());
 
             // EJECUCION DE LA CONVERSION
             double resultado = cambio.getConversionRate() * cantidad;

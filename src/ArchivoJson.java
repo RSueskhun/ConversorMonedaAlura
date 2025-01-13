@@ -3,14 +3,14 @@ import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class GeneradorDeArchivo {
+public class ArchivoJson {
     private final Gson gson;
 
-    public GeneradorDeArchivo() {
+    public ArchivoJson() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
-    public void guardarJson(CambioAPI cambio, String origen, String destino, double cantidad, double resultado) throws IOException {
+    public void guardarJson(ConsumoAPI cambio, String origen, String destino, double cantidad, double resultado) throws IOException {
         String nombreArchivo = "OPERACION_" + origen + "_A:_" + destino + "_" + System.currentTimeMillis() + ".json";
         Conversion conversion = new Conversion(origen, destino, cantidad, resultado, cambio.getConversionRate());
 
