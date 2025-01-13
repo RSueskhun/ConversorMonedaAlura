@@ -1,4 +1,4 @@
-<em> Conversor de Monedas Alura One - Challenge - </em>
+### Conversor de Monedas Alura One - Challenge
 
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
@@ -9,7 +9,7 @@
 ![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
 
 
-Descripción
+## Descripción
 
 Este proyecto consiste en un Conversor de Monedas desarrollado en Java. Permite a los usuarios convertir diferentes monedas utilizando tasas de cambio actualizadas obtenidas de una API externa. Durante el desarrollo, se realizaron solicitudes a la API, se manipularon datos JSON, y se implementaron filtros para mostrar las monedas de interés.
 
@@ -88,8 +88,3 @@ Realiza los cambios y confirma los commits:
     git commit -m "Agrega nueva funcionalidad"
 
 Envía un pull request.
-
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
